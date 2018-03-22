@@ -1,12 +1,12 @@
 using System;
 using System.Configuration;
 using System.Threading.Tasks;
-using System.Net.Http.Headers;
+
 
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.Luis;
 using Microsoft.Bot.Builder.Luis.Models;
-using Microsoft.Graph;
+
 
 namespace Microsoft.Bot.Sample.LuisBot
 {
@@ -24,7 +24,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         [LuisIntent("None")]
         public async Task NoneIntent(IDialogContext context, LuisResult result)
         {
-            await this.ShowLuisResult(context, result);
+            await context.PostAsync($"I'm afraid I didn't understand that. Write 'Help' for the question you can ask me");
         }
 
         // Go to https://luis.ai and create a new intent, then train/publish your luis app.
@@ -33,22 +33,22 @@ namespace Microsoft.Bot.Sample.LuisBot
         public async Task GreetingIntent(IDialogContext context, LuisResult result)
         {
             if (result.Entities.Count > 0) { 
-                await context.PostAsync($"Hello  {result.Entities[0].Entity}. I am yourSchool's bot. How can I help?"); 
+                await context.PostAsync($"Hello  {result.Entities[0].Entity}. I am AC Elementary School bot. How can I help?"); 
             } else {
-                await context.PostAsync($"Hello. I am yourSchool's bot. How can I help?");
+                await context.PostAsync($"Hello. I am AC Elementary School bot. How can I help?");
             }
 
         }
         [LuisIntent("Help")]
         public async Task HelpIntent(IDialogContext context, LuisResult result)
         {
-            await context.PostAsync($"I can answer your questions, about our campus, transportation, fees etc., . If you want more information please go: ");
+            await context.PostAsync($"I can answer your questions, about our campus, transportation, fees etc., . If you want more information please go: www.microsoft.com ");
         }
 
         [LuisIntent("Campus")]
-        public async Task CancelIntent(IDialogContext context, LuisResult result)
+        public async Task CampusIntent(IDialogContext context, LuisResult result)
         {
-            await context.PostAsync($"Our campus contains of 2 buildings. One with classes and the other for facilities. We offer wide range of activities to our students. We also have cafetarias, libraries etc., in second building. We have open basketball,football and tenis courts. For more information, please go to this address. ");
+            await context.PostAsync($"Our campus has 2 buildings. One with classes and the other for facilities. We offer wide range of activities to our students. We also have cafetarias, libraries etc., in second building. We have open basketball,football and tenis courts. For more information, please go to this address. ");
         }
 
         [LuisIntent("School Location")]
