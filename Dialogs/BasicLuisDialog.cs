@@ -48,7 +48,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         [LuisIntent("Campus")]
         public async Task CampusIntent(IDialogContext context, LuisResult result)
         {
-            await context.PostAsync($"Our campus has 2 buildings. One with classes and the other for facilities. We offer wide range of activities to our students. We also have cafetarias, libraries etc., in second building. We have open basketball,football and tenis courts. For more information, please go to this address. ");
+            await context.PostAsync($"Our campus has 2 buildings. One with classes and the other for facilities. We offer wide range of activities to our students. We also have cafetarias, libraries etc., in second building. We have open basketball,football and tenis courts. For more information, please go to our website www.microsoft.com ");
         }
 
         [LuisIntent("School Location")]
@@ -60,19 +60,19 @@ namespace Microsoft.Bot.Sample.LuisBot
         [LuisIntent("transportation")]
         public async Task TransportationIntent(IDialogContext context, LuisResult result)
         {
-            await context.PostAsync($"The ride to campus took 20 minutes with a bus and 15 minutes with the subway from city centre. We also have school transportation option. For pricing you can check this link out   ");
+            await context.PostAsync($"The ride to campus took 20 minutes with a bus and 15 minutes with the subway from city centre. We also have school transportation option. For pricing of our school transportation check our website.");
         }
         
         [LuisIntent("fees")]
         public async Task FeesIntent(IDialogContext context, LuisResult result)
         {
-            await context.PostAsync($"We do offer scholarships to successfull students and students who can afford to full price. To check your eligibility and a full campus tour, we would like to invite you to our campus.");
+            await context.PostAsync($"We do offer scholarships to successfull students and students who can't afford to full price. To check your eligibility and give you a full campus tour, we would like to invite you to our campus.");
         }
         
         [LuisIntent("meetingRequest")]
         public async Task MeetingRequestIntent(IDialogContext context, LuisResult result)
         {
-            await context.PostAsync($"Let us know when you're free so that we can save a possible slot for you ");
+            await context.PostAsync($"Let us know when you're free so that we can save a possible slot for you :) ");
         }
         
 
